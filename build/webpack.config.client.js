@@ -2,6 +2,7 @@ const path = require('path')
 const HTMLPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
+/* eslint-disable */
 //非javascript的css文件单独打包插件
 const ExtractPlugin = require('extract-text-webpack-plugin')
 
