@@ -77,7 +77,8 @@ if (isDev) {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   )
-} else {
+}
+else {
   config.entry = {
     //单独打包vue等等文件
     app: path.join(__dirname, 'src/index.js'),
