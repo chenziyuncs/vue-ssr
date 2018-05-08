@@ -16,7 +16,9 @@ const defaultPlugins = [
       NODE_ENV: isDev ? '"development"' : '"production"'
     }
   }),
-  new HTMLPlugin()
+  new HTMLPlugin({
+    template: path.join(__dirname, 'template.html')
+  })
 ]
 const devServer = {
   port: 8000,
@@ -24,7 +26,11 @@ const devServer = {
   overlay: {
     errors: true,
   },
-  hot: true
+  hot: true,
+  historyApiFallback: {
+    //用户手动刷新页面的时候，请求服务端，如若没有匹配需要如下设置
+    index: '/public/index.html'
+  }
 }
 let config
 if (isDev) {

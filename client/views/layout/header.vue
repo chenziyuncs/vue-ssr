@@ -3,6 +3,15 @@
     <h1>JTodo</h1>
   </header>
 </template>
+<script>
+export default {
+  methods: {
+    divClick () {
+      this.$router.push('/login')
+    }
+  }
+}
+</script>
 
 <style lang="stylus" module>
 .main-header{
