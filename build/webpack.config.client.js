@@ -2,6 +2,7 @@ const path = require('path')
 const HTMLPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
+const VueClientPlugin = require('vue-server-renderer/client-plugin')
 /* eslint-disable */
 //非javascript的css文件单独打包插件
 const ExtractPlugin = require('extract-text-webpack-plugin')
@@ -18,7 +19,8 @@ const defaultPlugins = [
   }),
   new HTMLPlugin({
     template: path.join(__dirname, 'template.html')
-  })
+  }),
+  new VueClientPlugin()
 ]
 const devServer = {
   port: 8000,
@@ -26,6 +28,7 @@ const devServer = {
   overlay: {
     errors: true,
   },
+  headers: { 'Access-Control-Allow-Origin': '*' },
   hot: true,
   historyApiFallback: {
     //用户手动刷新页面的时候，请求服务端，如若没有匹配需要如下设置
@@ -71,18 +74,19 @@ if (isDev) {
   config = merge(baseConfig ,{
     entry: {
       //单独打包vue等等文件
-      app: path.join(__dirname, '../client/index.js'),
+      app: path.join(__dirname, '../client/client-entry.js'),
       vendor: ['vue']
     },
     output:{
-      filename: '[name].[chunkhash:8].js'
+      filename: '[name].[chunkhash:8].js',
+      publicPath: '/public/'
     },
     module: {
       rules: [
         {
           test: /\.styl/,
           use: ExtractPlugin.extract({
-            fallback: 'vestyle-loader',
+            fallback: 'vue-style-loader',
             use: [
               'css-loader',
               {

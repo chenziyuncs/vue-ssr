@@ -3,7 +3,14 @@
 </template>
 <script>
 export default {
+  // metaInfo: {
+  //   title:'Login page'
+  // },
+  // data() {
+  //   return {
 
+  //   }
+  // }
 }
 </script>
 <style lang="stylus" scoped>

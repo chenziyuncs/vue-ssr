@@ -1,5 +1,5 @@
 export default {
-  count: 0,
+  count: 'abc',
   firstName: 'chen',
   lastName: 'song'
 }
