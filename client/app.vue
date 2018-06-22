@@ -28,6 +28,7 @@ export default {
     Todo
   },
   mounted () {
+    console.log(this.myName)
     // this.$notify({
     //   content: 'test $notify',
     //   btn: 'close'
@@ -71,7 +72,8 @@ export default {
     // ...mapGetters(['fullName', 'a/textPlus'])
     ...mapGetters({
       'fullName': 'fullName',
-      'textPlus': 'a/textPlus'
+      'textPlus': 'a/textPlus',
+      'myName': 'myName'
     })
     // fullName () {
     //   return this.$store.getters.fullName
