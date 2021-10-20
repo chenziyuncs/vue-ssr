@@ -1,8 +1,6 @@
 
 # 使用方法
 ```
-git clone https://github.com/Jokcy/vue-todo-tech.git
-```
 进入项目目录，运行
 ```
 npm install
